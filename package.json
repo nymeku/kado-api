@@ -1,0 +1,36 @@
+{
+  "name": "kado-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/server.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "npm run build && node build/server.js",
+    "dev": "nodemon build/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nymeku/kado-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nymeku/kado-api/issues"
+  },
+  "homepage": "https://github.com/nymeku/kado-api#readme",
+  "dependencies": {
+    "@prisma/client": "^4.8.1",
+    "@sinclair/typebox": "^0.25.20",
+    "fastify": "^4.11.0",
+    "fastify-plugin": "^4.5.0",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.8.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18"
+  }
+}
