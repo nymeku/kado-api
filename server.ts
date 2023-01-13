@@ -2,7 +2,7 @@ import { build } from "./app"
 
 export default async function start() {
 	const server = build()
-	server.listen({ host: "0.0.0.0", port: 4000 }, (err, address) => {
+	server.listen({ host: "0.0.0.0", port: 3000 }, (err, address) => {
 		if (err) {
 			console.error(err)
 			process.exit(1)
