@@ -1,0 +1,23 @@
+name: Production
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Connect to VPS
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.VPS_ADDRESS }}
+                  username: ${{ secrets.VPS_USER }}
+                  password: ${{ secrets.VPS_PASSWORD }}
+                  script: |
+                      mkdir -p /home/${{ github.repository }} && cd "$_"
+                      [ -d .git ] && git pull || git clone git@github.com:nymeku/kado-api.git ./
+                      echo -e "${{ secrets.ENV }}" > .env
+                      docker-compose build
+                      docker-compose down
+                      docker-compose up -d
