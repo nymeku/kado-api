@@ -11,5 +11,9 @@ export const build = (opts = {}) => {
 		return "OK"
 	})
 
+	app.get("/", async () => {
+		return "Hello World !"
+	})
+
 	return app
 }
