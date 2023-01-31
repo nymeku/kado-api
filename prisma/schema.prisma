@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["debian-openssl-1.1.x"]
 }
 
 datasource db {
@@ -8,8 +9,16 @@ datasource db {
 }
 
 model client {
-  client_id   Int @unique
+  client_id   Int    @unique
   total_spend Float
   score       Int
   level       String
+}
+
+model spatial_ref_sys {
+  srid      Int     @id
+  auth_name String? @db.VarChar(256)
+  auth_srid Int?
+  srtext    String? @db.VarChar(2048)
+  proj4text String? @db.VarChar(2048)
 }
